@@ -1,0 +1,71 @@
+<!doctype html>
+	<head>
+    	<meta name="viewport" content="width=device-width">
+    	<title>Find the middle letter</title>
+		<meta charset="utf-8">
+		<style>
+			body{
+				background-color: orange;
+				font-family: "calibri";
+			}
+			table{
+				font-size:200%;
+				border: .1em solid black;
+				border-collapse: collapse;
+			}
+			td{
+				border: .01em solid black;
+				padding: .3em;
+				width: 2em;
+				height: 2em;
+				text-align: center;
+			}
+		</style>
+		<script src="./middleLetter.js"></script>
+	</head>
+	<header>
+		<h1>My middle letter game</h1>
+	</header>
+	<body>
+		<Main>
+			<p>When I was young, I somehow decided that spelling was fun and I made up my own game with it. I attribute this game to my good spelling! It's not really a game since you just do it by yourself and there's no prize. The rules are simple, think of a word or a sentence and find the middle letter of the chosen word / sentence.</p>
+
+			<ul>For an easy example: 
+				<li>"Silly", you get the first L.</li>
+				<li>"Christmas", the first S.</li>
+				<li>"Abnormality", you get M.</li>
+				<li>"ThisIsAReallyLongSentence", gets you the Y from Really.</li>
+			</ul>
+
+			<p>Now this is rather simple to do. But what happens if the word or sentence has an even number of characters? How do you find out the middle letter of Kangaroo? The G and second A are both competing for that middle place. This is where it gets fun!</p>
+
+			<p>Each letter's pronounciation can be visualised with three letters. The letter itself will either start OR end the visualisation. The middle letter is decided on when that letter within its own visualisation is at the centre of the two letters' visualisation when the other is absent.</p>
+
+			<table>
+				<tr><td>Ayy</td><td>Bee</td><td>Cee</td><td>Dee</td><td>Eey</td><td>efF</td></tr>
+				<tr><td>Gee</td><td>acH</td><td>Iey</td><td>Jay</td><td>Kay</td><td>elL</td></tr>
+				<tr><td>emM</td><td>enN</td><td>Ohh</td><td>Pee</td><td>Que</td><td>arR</td></tr>
+				<tr><td>esS</td><td>Tee</td><td>yoU</td><td>Vee</td><td>ywW</td><td>ehX</td></tr>
+				<tr><td>whY</td><td>Zed</td></tr>
+				<tr></tr>
+			</table>
+			
+			<p>For example, if we're using "Kangaroo", the G and A are now competing. We can visualise this as "Gee Ayy". Gee has the G at the start and so does A. Since A is at the centre between the visualisation, A wins.</p>
+			
+			<p>But what if both letters are or are not at the centre? For "Window", N and D ("enN Dee" creates a stalemate between the two but this is where the remainder of the visualisation comes in. The visualisation is now replaced by the letters visualisation on the opposite side. <br>So now instead of N and D, it is now E and E. N vs D (<strong>e</strong>nN vs De<strong>e</strong> becomes <strong>e</strong> vs <strong>e</strong>). If we visualise this match, we have Eey vs Eey, the second E reaches the centre, the second E is the child of D so D is crowned the winner!</p>
+			
+			<ol>So in each iteration we have:
+				<li>Window - en<strong>N</strong> vs <strong>D</strong>ee</li>
+				<li>Opposites are used - <strong>E</strong>ey vs <strong>E</strong>ey</li>
+				<li>The <strong>E</strong> corresponding to <strong>D</strong> has done it.</li>
+			</ol>
+
+			<p>If the opposites do not decide a winner, the process repeats until one does.</p>
+
+			<p>After years of testing, I do not believe more than four standoffs can happen. But feel free to test and prove me wrong</p>
+
+			<input type="button" onclick="play()" value="Click me to get started.">
+
+		</Main>
+	</body>
+</html>
